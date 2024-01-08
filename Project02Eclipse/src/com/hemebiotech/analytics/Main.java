@@ -9,12 +9,11 @@ public class Main {
 		
 		ISymptomReader readSymptomDataFromFile  = new ReadSymptomDataFromFile("symptoms.txt");
 		ISymptomWriter writeSymptomDataToFile = new WriteSymptomDataToFile("result.out");
-		//ISymptomWriter writeSymptomDataToConsole = new WriteSymptomDataToConsole("result.out");
+		
 		
 		AnalyticsCounter acounter = new AnalyticsCounter(readSymptomDataFromFile,writeSymptomDataToFile);
 		
 		
-		 //lire Symptoms
 		 List<String> symptoms =  acounter.getSymptoms();
 		 
 		 Map<String, Long> counts = acounter.countSymptoms(symptoms);

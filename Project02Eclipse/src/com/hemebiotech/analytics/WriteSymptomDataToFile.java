@@ -20,12 +20,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 			try {
 				writer = new FileWriter ("result.out");
 				for( Map.Entry<String, Long> entry : symptoms.entrySet() ){
-				    writer.write( entry.getKey() + " = " + entry.getValue() + "\n" );
+				    writer.write( entry.getKey() + " : " + entry.getValue() + "\n" );
 				}
 				
 				writer.close();
-
-			} catch (IOException e) {
+			} 
+			
+			  catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}		

@@ -10,30 +10,26 @@ public class AnalyticsCounter {
 	
 	private ISymptomReader readSymptomDataFromFile;
 	private ISymptomWriter writeSymptomDataToFile;
-	//private ISymptomWriter writeSymptomDataToConsole;
 	
-	
-
- 
- 
-	public List<String> getSymptoms(){
-		
-		List<String> symptoms = this.readSymptomDataFromFile.GetSymptoms();
-		return symptoms;
-		
-	}
 	
 	public AnalyticsCounter(ISymptomReader readSymptomDataFromFile, ISymptomWriter writeSymptomDataToFile) {
 		super();
 		this.readSymptomDataFromFile = readSymptomDataFromFile;
 		this.writeSymptomDataToFile = writeSymptomDataToFile;
 	}
+	
+ 
+	public List<String> getSymptoms(){
+		
+		List<String> symptoms = this.readSymptomDataFromFile.GetSymptoms();
+		return symptoms;	
+	}
+	
+	
 
 	public Map<String, Long> countSymptoms(List<String>symptoms){
 		
 		Map<String,Long> count = new HashMap<String, Long>();
-		
-		
 		
 		
 	    for (String symptom : symptoms) {
@@ -48,26 +44,20 @@ public class AnalyticsCounter {
             	count.put(symptom, (long) 1);
             }
         }
- 
-        
-        
+    
 		return count;
     }
 		
 		
-
-	
 	public Map<String,Long> sortSymptoms(Map<String,Long>symptoms) throws IOException{
 		
 		Map<String, Long> Sortedsymptoms = new TreeMap<>(symptoms);
 		
-		return Sortedsymptoms;
-		
+		return Sortedsymptoms;	
 	}
 	
 	public void writeSymtoms(Map<String, Long>symptoms) {
 		this.writeSymptomDataToFile.writeSymptoms(symptoms);
-	 }
-	
+	 }	
 	}
 	

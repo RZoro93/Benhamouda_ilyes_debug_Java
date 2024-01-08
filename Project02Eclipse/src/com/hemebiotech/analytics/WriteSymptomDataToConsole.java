@@ -13,7 +13,7 @@ public class WriteSymptomDataToConsole implements ISymptomWriter {
 	@Override
 	public void writeSymptoms(Map<String, Long> symptoms) {
 		for( Map.Entry<String, Long> entry : symptoms.entrySet() ){
-		    System.out.println(entry.getKey() + " = " + entry.getValue());
+		    System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
 		
 	}
